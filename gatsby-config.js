@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `My blog`,
+    position: `Frontend Developer`,
     description: `A blog with my professional portfolio`,
-    author: `mario rodrigues`,
+    author: `Mário Rodrigues`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,8 +15,22 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/posts`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
